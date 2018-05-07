@@ -1,0 +1,33 @@
+.mainContent{
+    margin-top: 10%;
+   width: 60%;
+   margin: auto;
+   padding-top: 5%;
+}
+
+.openGamesPara{
+    margin-top: 5%;
+    font-size: 20px;
+    font-style: bold;
+   padding-left: 30%;
+}
+
+.openGamesBtn{
+    width: 40%;
+    margin: auto;
+}
+
+.createGameBtn{
+    width: 40%;
+    margin: auto;
+    display: block;
+}
+
+.createGameLink{
+    color: white;
+    text-decoration: none;
+}
+
+.createGameLink:hover{
+    color: white;
+}
