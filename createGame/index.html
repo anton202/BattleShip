@@ -4,18 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css" />
+
     <title>Create Game</title>
 </head>
 <body>
     <div class="container">
         <input type="text" placeholder="Room Name:">
-        <table></table>
-        <button>ship 1</button>
-        <button>ship 2</button>
-        <button>ship 3</button>
+        <table class="battleBoard"></table>
+        <button class="ship1 ">ship 1</button>
+        <button class="ship2">ship 2</button>
+        <button class="ship3">ship 3</button>
+        <ul>
+            <li>Ship 1: 3 squares</li>
+            <li>Ship 2: 2 squares</li>
+            <li>Ship 3: 3 squares</li>
+        </ul>
 
-        <button>Create Game</button>
+        <button class="createGameBtn">Create Game</button>
+        <script src="ui.js" ></script>
+        <script src="app.js" ></script>
     </div>
 </body>
 </html>

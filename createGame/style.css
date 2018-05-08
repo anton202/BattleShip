@@ -1,0 +1,26 @@
+.createGameBtn {
+     display: block;
+     margin-top: 5%;
+}
+
+.battleBoard{
+    border: 1px solid black;
+    border-collapse: collapse;
+    width: 350px;
+    height: 300px;
+}
+
+.boardBorders{
+    border: 1px solid black;
+}
+
+.boardBorders:first-child{
+    padding-left: 15px;
+}
+
+.boardBorders:last-child {
+    padding-right: 15px;
+}
+.boardBordersHover:hover{
+    background-color: green;
+}
