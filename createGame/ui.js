@@ -1,4 +1,9 @@
 class UI {
+    constructor(ship1, ship2, ship3) {
+        this.ships = [ship1, ship2, ship3];
+        console.log(this.ships)
+    }
+
     creatTable() {
         const battleBoard = document.querySelector('table');
 
@@ -24,9 +29,15 @@ class UI {
         const table = document.querySelector('table');
         table.style.backgroundColor = '#cce0ff';
 
+        this.ships.forEach(button => {
+            if (button.className !== event.target.className) {
+                button.disabled = true;
+            }
+        });
+
         table.addEventListener('click', (e) => {
             click++
-            if (click <= 3) {
+            if (click <= +event.target.dataset.clicks) {
                 e.target.style.backgroundColor = '#ccffcc';
                 position.push({
                     ship: event.target.className,
@@ -34,35 +45,19 @@ class UI {
                     column: e.target.dataset.column
                 })
             }
-            if (click === 3) {
+            if (click === +event.target.dataset.clicks) {
                 event.target.style.backgroundColor = '#ccffcc'
+                this.ships.forEach(button => {
+                    if (button.className !== event.target.className) {
+                        button.disabled = false;
+                    }
+                });
             }
-            console.log(position)
+            console.log(+event.target.dataset.clicks)
         })
 
     }
 
-    selectShip2(event) {
-        let click = 0;
-        const table = document.querySelector('table');
-        table.style.backgroundColor = '#cce0ff';
 
-        table.addEventListener('click', (e) => {
-            click++
-
-            if (click <= 2) {
-                e.target.style.backgroundColor = '#ccffcc';
-                position.push({
-                    ship: event.target.className,
-                    row: e.target.dataset.row,
-                    column: e.target.dataset.column
-                })
-            }
-            if (click === 2) {
-                 event.target.style.backgroundColor = '#ccffcc'
-            }
-
-        })
-}
-
+    
 }

@@ -13,9 +13,9 @@
     <div class="container">
         <input type="text" placeholder="Room Name:">
         <table class="battleBoard"></table>
-        <button class="ship1 ">ship 1</button>
-        <button class="ship2">ship 2</button>
-        <button class="ship3">ship 3</button>
+        <button data-clicks="3" class="ship1 ">ship 1</button>
+        <button data-clicks="2" class="ship2">ship 2</button>
+        <button data-clicks="3" class="ship3">ship 3</button>
         <ul>
             <li>Ship 1: 3 squares</li>
             <li>Ship 2: 2 squares</li>
@@ -23,6 +23,7 @@
         </ul>
 
         <button class="createGameBtn">Create Game</button>
+        <script src="checkPosition.js"></script>
         <script src="ui.js" ></script>
         <script src="app.js" ></script>
     </div>
