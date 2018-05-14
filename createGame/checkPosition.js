@@ -5,12 +5,13 @@ function checkPosition(event) {
     table.addEventListener('click', check);
 
     let click = 0;
-
+    const ui = new UI();
     function check(e) {
 
 
         if (positions.length === 0 || event.target.className !== positions[positions.length - 1].shipName) {
             click++
+            ui.selectShip(e);
             return positions.push({
                 shipName: event.target.className,
                 position1: {
@@ -56,9 +57,15 @@ function checkPosition(event) {
                 if (+e.target.dataset.column - (+currentPosition.column) === 0 ||
                     +e.target.dataset.column - (+currentPosition.column) === 1 ||
                     +e.target.dataset.column - (+currentPosition.column) === -1) {
+
                     click++
+
+                    ui.selectShip(e)
+
                     if (click === +event.target.dataset.clicks) {
+                        ui.unDisable(event);
                         table.removeEventListener('click', check);
+                        
                         console.log('event removed')
                     }
 

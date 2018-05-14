@@ -1,8 +1,4 @@
 class UI {
-    constructor(ship1, ship2, ship3) {
-        this.ships = [ship1, ship2, ship3];
-        console.log(this.ships)
-    }
 
     creatTable() {
         const battleBoard = document.querySelector('table');
@@ -24,40 +20,36 @@ class UI {
 
     }
 
-    selectShip(event) {
-        let click = 0;
-        const table = document.querySelector('table');
-        table.style.backgroundColor = '#cce0ff';
+    selectShip(e) {
 
-        this.ships.forEach(button => {
+        //const table = document.querySelector('table');
+        // table.style.backgroundColor = '#cce0ff';
+        const buttons = document.querySelectorAll('button');
+
+        buttons.forEach(button => {
             if (button.className !== event.target.className) {
                 button.disabled = true;
             }
         });
+        e.target.style.backgroundColor = '#ccffcc';
+    }
 
-        table.addEventListener('click', (e) => {
-            click++
-            if (click <= +event.target.dataset.clicks) {
-                e.target.style.backgroundColor = '#ccffcc';
-                position.push({
-                    ship: event.target.className,
-                    row: e.target.dataset.row,
-                    column: e.target.dataset.column
-                })
+    unDisable(event) {
+        const buttons = document.querySelectorAll('button');
+
+        event.target.style.backgroundColor = '#ccffcc'
+
+        buttons.forEach(button => {
+            if (button.className !== event.target.className) {
+                button.disabled = false;
             }
-            if (click === +event.target.dataset.clicks) {
-                event.target.style.backgroundColor = '#ccffcc'
-                this.ships.forEach(button => {
-                    if (button.className !== event.target.className) {
-                        button.disabled = false;
-                    }
-                });
-            }
-            console.log(+event.target.dataset.clicks)
-        })
+        });
 
     }
 
 
-    
+
+
+
+
 }
