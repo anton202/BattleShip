@@ -13,7 +13,6 @@ class UI {
                 td.dataset.column = y;
                 td.className = 'boardBorders';
                 tr.appendChild(td);
-
             }
             battleBoard.appendChild(tr);
         }
@@ -21,9 +20,6 @@ class UI {
     }
 
     selectShip(e) {
-
-        //const table = document.querySelector('table');
-        // table.style.backgroundColor = '#cce0ff';
         const buttons = document.querySelectorAll('button');
 
         buttons.forEach(button => {
