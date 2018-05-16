@@ -19,30 +19,9 @@ class UI {
 
     }
 
-    selectShip(e) {
-        const buttons = document.querySelectorAll('button');
-
-        buttons.forEach(button => {
-            if (button.className !== event.target.className) {
-                button.disabled = true;
-            }
-        });
-        e.target.style.backgroundColor = '#ccffcc';
-    }
-
-    unDisable(event) {
-        const buttons = document.querySelectorAll('button');
-
-        event.target.style.backgroundColor = '#ccffcc'
-
-        buttons.forEach(button => {
-            if (button.className !== event.target.className) {
-                button.disabled = false;
-            }
-        });
-
-    }
-
+   shipSelected(){
+       
+   }
 
 
 
