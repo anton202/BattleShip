@@ -1,17 +1,20 @@
 
 const roomNameInput = document.querySelector('input');
 const creatGame = document.querySelector('.createGameBtn');
-
-const ui = new UI;
+const table = document.querySelector('table');
 let roomName;
 
-ui.creatTable();
+uiCtrl.creatTable();
 
 roomNameInput.addEventListener('keyup', (e) => {
     roomName = e.target.value;
 })
 
-document.querySelector('table').addEventListener('click',shipsLocation.selectShip)
+table.addEventListener('click',shipsLocation.selectShip);
+table.addEventListener('click',uiCtrl.positionColor);
+table.addEventListener('click',uiCtrl.shipSelected);
+
+
 
 creatGame.addEventListener('click', () => {
     if (roomName !== '' && positions.length === 8) {
