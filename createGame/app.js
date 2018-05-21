@@ -14,7 +14,9 @@ table.addEventListener('click',shipsLocation.selectShip);
 table.addEventListener('click',uiCtrl.positionColor);
 table.addEventListener('click',uiCtrl.shipSelected);
 
-
+document.querySelector('#resetSelection').addEventListener('click',()=>{
+    location.reload();
+})
 
 creatGame.addEventListener('click', () => {
     if (roomName !== '' && positions.length === 8) {

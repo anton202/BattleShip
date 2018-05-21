@@ -39,10 +39,12 @@ console.log(position,positions)
         }
     }
 
+    
     return {
         selectShip,
         positions,
         getPosition
+        
     }
 
 })()
