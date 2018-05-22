@@ -17,9 +17,9 @@ const App = (function () {
         })
         
         creatGame.addEventListener('click', (e) => {
-            if (roomName !== '' && shipsLocation.positions.length === 8) {
+            if (roomName !== undefined && shipsLocation.positions.length === 3 ) {
                 //api.createGame(roomName,position);
-                console.log('game created')
+                console.log(roomName)
         
             }
         })
