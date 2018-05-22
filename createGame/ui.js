@@ -3,8 +3,7 @@ const uiCtrl = (function () {
     const shipLength = [3, 2, 3];
     let currentShip = 1;
     let currentPositionLength = 0;
-    let shipsSelected = 0;
-
+   
     const creatTable = function () {
         const battleBoard = document.querySelector('table');
 
