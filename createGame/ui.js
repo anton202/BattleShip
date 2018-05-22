@@ -3,6 +3,7 @@ const uiCtrl = (function () {
     const shipLength = [3, 2, 3];
     let currentShip = 1;
     let currentPositionLength = 0;
+    let shipsSelected = 0;
 
     const creatTable = function () {
         const battleBoard = document.querySelector('table');
@@ -26,24 +27,23 @@ const uiCtrl = (function () {
     const shipSelected = function () {
         const ships = document.querySelectorAll('.ship');
         if (shipsCount.length === currentShip) {
-            ships[currentShip - 1].style.backgroundColor = 'green';
+            ships[currentShip - 1].style.backgroundColor = '#c6ecc6';
             currentShip++;
         }
     }
 
     const positionColor = function (e) {
         const positionLength = shipsLocation.getPosition().length;
-
+        
         if (positionLength - currentPositionLength === 1) {
-            e.target.style.backgroundColor = 'blue';
+            e.target.style.backgroundColor = '#cce6ff';
             currentPositionLength++;
         }
         if (shipsCount.length === currentShip) {
-            e.target.style.backgroundColor = 'blue';
+            e.target.style.backgroundColor =  '#cce6ff';
             currentPositionLength = 0;
         }
-        if (shipsCount.length === 3)
-            return;
+
     }
 
     return {

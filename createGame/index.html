@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,24 +10,50 @@
 
     <title>Create Game</title>
 </head>
+
 <body>
     <div class="container">
         <input type="text" placeholder="Room Name:">
-        <table class="battleBoard"></table>
-        <button data-clicks="3" class="ship ">ship 1</button>
-        <button data-clicks="2" class="ship">ship 2</button>
-        <button data-clicks="3" class="ship">ship 3</button>
-        <ul>
-            <li>Ship 1: 3 squares</li>
-            <li>Ship 2: 2 squares</li>
-            <li>Ship 3: 3 squares</li>
-        </ul>
+        <div class="main">
+            <div class="table&shipsBtn">
+            <table class="battleBoard"></table>
+            <div class="ships">
+                    <button data-clicks="3" class="ship ">ship 1</button>
+                    <button data-clicks="2" class="ship">ship 2</button>
+                    <button data-clicks="3" class="ship">ship 3</button>
+                </div>
+            </div>
+            <div class="instructions">
+                <ul>
+                    <h2>Instructions</h2>
+                    <li>The selection of ships position begins with the selection of ship1 position, and continues automatically
+                        to ship2 and ship3.
+                    </li>
+                    <li>the position of your ships can only be horizontal or vertical</li>
+                    <li>if you choose to position your ship horizontally, you can position your ship only in one direction right
+                        or left. same applies when positioning your ship vertically (up/down).
+                    </li>
+                    <li>ship sizes:
+                        <ul class="shipSizes">
+                            <li>Ship 1: 3 squares</li>
+                            <li>Ship 2: 2 squares</li>
+                            <li>Ship 3: 3 squares</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            
+        </div>
 
-        <button id="resetSelection">Reset Selection</button>
-        <button class="createGameBtn">Create Game</button>
+        <div>
+            <button class="createGameBtn">Create Game</button>
+            <button id="resetSelection">Reset Selection</button>
+        </div>
+
         <script src="shipLocation.js"></script>
-        <script src="ui.js" ></script>
-        <script src="app.js" ></script>
+        <script src="ui.js"></script>
+        <script src="app.js"></script>
     </div>
 </body>
+
 </html>

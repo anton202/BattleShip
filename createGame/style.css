@@ -1,5 +1,5 @@
 .createGameBtn {
-     display: block;
+     
      margin-top: 1%;
 }
 
@@ -8,6 +8,17 @@
     border-collapse: collapse;
     width: 350px;
     height: 300px;
+    margin-bottom: 10px;
+}
+
+.main{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.instructions{
+   width: 55%;
+  padding-left: 30px;
 }
 
 .boardBorders{
@@ -21,6 +32,12 @@
 .boardBorders:last-child {
     padding-right: 15px;
 }
-.boardBordersHover:hover{
-    background-color: green;
+
+.shipSizes{
+    margin:0;
+    list-style-type: square;
+}
+
+.shipSizes > li{
+    margin: 0;
 }

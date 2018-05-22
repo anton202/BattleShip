@@ -18,10 +18,11 @@ document.querySelector('#resetSelection').addEventListener('click',()=>{
     location.reload();
 })
 
-creatGame.addEventListener('click', () => {
-    if (roomName !== '' && positions.length === 8) {
+creatGame.addEventListener('click', (e) => {
+    if (roomName !== '' && shipsLocation.positions.length === 8) {
         //api.createGame(roomName,position);
         console.log('game created')
+        
     }
 })
 
