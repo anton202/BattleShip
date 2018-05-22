@@ -1,0 +1,41 @@
+
+.battleBoard{
+    border: 1px solid black;
+    border-collapse: collapse;
+    width: 350px;
+    height: 300px;
+    margin-bottom: 10px;
+}
+.boardBorders{
+    border: 1px solid black;
+}
+
+.boardBorders:first-child{
+    padding-left: 15px;
+}
+
+.boardBorders:last-child {
+    padding-right: 15px;
+}
+
+.battleArea{
+display: flex;
+}
+
+.player1Ships{
+    margin-right: 50px;
+    width: 50%;
+}
+
+.player2Ships{
+width: 50%;
+}
+
+img{
+    display: block;
+    margin: auto;
+}
+
+.roomName{
+    margin-bottom: 50px;
+}
