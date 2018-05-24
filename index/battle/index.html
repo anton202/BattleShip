@@ -11,24 +11,25 @@
 </head>
 
 <body>
-    <h1 class="roomName">Battle Ground</h1>
+    <h1 class="roomName"></h1>
     <div class="container">
 
         <div class="battleArea">
 
             <div class="player1Ships">
-                <table class="battleBoard"></table>
+                <table class="battleBoard "></table>
             </div>
             <div class="player2Ships">
                 <img src="waiting.gif" alt="">
-                <table></table>
+                <table id="rivalBoard"></table>
             </div>
         </div>
     </div>
 
 
 
-
+   
+    <script src="/socket.io/socket.io.js"></script>
     <script src="uiCtrl.js"></script>
     <script src="app.js"></script>
 </body>

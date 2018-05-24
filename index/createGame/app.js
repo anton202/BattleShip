@@ -4,7 +4,7 @@ const App = (function () {
     const table = document.querySelector('table');
     let roomName;
 
-    const loadEventListeners = function(){
+    const loadEventListeners = function () {
         roomNameInput.addEventListener('keyup', (e) => {
             roomName = e.target.value;
         })
@@ -15,23 +15,31 @@ const App = (function () {
         document.querySelector('#resetSelection').addEventListener('click', () => {
             location.reload();
         })
-        
+
         creatGame.addEventListener('click', (e) => {
-            if (roomName !== undefined && shipsLocation.positions.length === 3 ) {
+            if (roomName !== undefined && shipsLocation.positions.length === 3) {
+                location.href = '../battle/index.html'
                 //api.createGame(roomName,position);
-                console.log(roomName)
-        
+                fetch('http://localhost:8000/setSession', {
+                    method: 'POST', body: JSON.stringify({positions:shipsLocation.positions,roomName:roomName}), headers: {
+                        'Content-Type': 'application/json'
+                    }
+                })
+                    .then(()=>{})
+                 
             }
         })
     }
 
     return {
-        init : function(){
+        init: function () {
             uiCtrl.creatTable();
             loadEventListeners();
- 
+            
+
         }
     }
 })()
 
 App.init();
+
