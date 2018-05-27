@@ -8,13 +8,16 @@ const App = (function () {
 
     return {
         init: function () {
+            let roomName;
             fetch('http://localhost:8000/getSession')
                 .then((res) => res.json())
                 .then(data => {
                     uiCtrl.creatTable(data.positions)
                     uiCtrl.roomName(data.roomName)
+                    socket.emit('openRoom',data.roomName);
                 })
                 const socket = io();
+               
         }
     }
 })()
