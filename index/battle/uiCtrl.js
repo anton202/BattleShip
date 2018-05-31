@@ -29,6 +29,33 @@ const uiCtrl = (function () {
 
     }
 
+    const createOpponentTable = function(){
+        // let tempArr = positions.map((position) => position.shipPosition)
+
+        // let shipsPositions = [].concat(...tempArr);
+
+        // console.log(shipsPositions)
+        
+        for (let x = 0; x < 5; x++) {
+            const tr = document.createElement('tr');
+            tr.className = 'boardBorders';
+
+            for (let y = 0; y < 5; y++) {
+                const td = document.createElement('td');
+                td.dataset.row = x;
+                td.dataset.column = y;
+                // if(shipsPositions.includes(Number(x+''+y))){
+                //     console.log(x+y)
+                //     td.isShip = true;
+                // }
+                td.className = 'boardBorders';
+                tr.appendChild(td);
+            }
+            document.querySelector('#opponentBoard').appendChild(tr);
+            document.querySelector('img').style.display = 'none';
+        }
+    }
+
 
         const roomName = function(roomName){
             const h1 = document.querySelector('h1');
@@ -38,6 +65,7 @@ const uiCtrl = (function () {
 
     return {
         creatTable,
-        roomName
+        roomName,
+        createOpponentTable
     }
 })();

@@ -14,10 +14,43 @@ const App = (function () {
                 .then(data => {
                     uiCtrl.creatTable(data.positions)
                     uiCtrl.roomName(data.roomName)
-                    socket.emit('openRoom',data.roomName);
+                    socket.emit('openRoom', {
+                        roomName: data.roomName,
+                        positions: data.positions
+                    });
+                    fetch('http://localhost:8000/inRoom')
+                        .then(res => res.json())
+                        .then(data =>{
+                            console.log(data)
+                            if (!data.inRoom) {
+                                socket.emit('joinRoom', {
+                                    roomName: data.roomName,
+                                    positions: data.positions
+                                })
+                                uiCtrl.createOpponentTable();
+                            }
+                        })
                 })
-                const socket = io();
-               
+
+                // fetch('http://localhost:8000/inRoom')
+                //         .then(res => res.json())
+                //         .then(data =>{
+                //             console.log(data)
+                //             if (!data.inRoom) {
+                //                 socket.emit('joinRoom', {
+                //                     roomName: data.roomName,
+                //                     positions: data.positions
+                //                 })
+                //                 uiCtrl.createOpponentTable();
+                //             }
+                //         })
+
+            const socket = io();
+            socket.on('roomReady',(data)=>{
+                if(data){
+                    uiCtrl.createOpponentTable()
+                }
+            })
         }
     }
 })()
