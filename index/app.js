@@ -18,8 +18,13 @@ socket.on('newRoomCreated',(room)=>{
 })
 
 openGamesContainer.addEventListener('click', (e) => {
-    fetch('http://localhost:8000')
+    
     if (e.target.className === 'join') {
+        fetch('http://localhost:8000/setJoinGameRoomName', {
+            method: 'POST', body: JSON.stringify({roomName:e.target.textContent}), headers: {
+                'Content-Type': 'application/json'
+            }
+        })
         location.href = '../joinGame/index.html'
       
     }

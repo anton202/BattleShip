@@ -25,18 +25,6 @@ const App = (function () {
                             location.href = '../battle/index.html'
             }
 
-
-            // if (roomName !== undefined && shipsLocation.positions.length === 3) {
-            //     location.href = '../battle/index.html'
-            //     //api.createGame(roomName,position);
-            //     fetch('http://localhost:8000/setSession', {
-            //         method: 'POST', body: JSON.stringify({positions:shipsLocation.positions,roomName:roomName}), headers: {
-            //             'Content-Type': 'application/json'
-            //         }
-            //     })
-            //         .then(()=>{})
-                 
-            // }
         })
     }
 
