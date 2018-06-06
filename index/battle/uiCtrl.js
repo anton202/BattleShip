@@ -6,7 +6,7 @@ const uiCtrl = (function () {
 
         let shipsPositions = [].concat(...tempArr);
 
-        console.log(shipsPositions)
+        
         const battleBoard = document.querySelector('table');
 
         for (let x = 0; x < 5; x++) {
@@ -30,12 +30,6 @@ const uiCtrl = (function () {
     }
 
     const createOpponentTable = function(){
-        // let tempArr = positions.map((position) => position.shipPosition)
-
-        // let shipsPositions = [].concat(...tempArr);
-
-        // console.log(shipsPositions)
-        
         for (let x = 0; x < 5; x++) {
             const tr = document.createElement('tr');
             tr.className = 'boardBorders';
@@ -44,10 +38,6 @@ const uiCtrl = (function () {
                 const td = document.createElement('td');
                 td.dataset.row = x;
                 td.dataset.column = y;
-                // if(shipsPositions.includes(Number(x+''+y))){
-                //     console.log(x+y)
-                //     td.isShip = true;
-                // }
                 td.className = 'boardBorders';
                 tr.appendChild(td);
             }
@@ -56,6 +46,25 @@ const uiCtrl = (function () {
         }
     }
 
+        const positionRevealed = function(position){
+            let table = document.querySelector('.battleBoard');
+            let rows = Array.from(table.rows);
+
+            for(let i = 0; i < rows.length; i++){
+                console.dir(rows[i])
+                for(let x = 0; x < 5; x++){
+                    
+                    let cells = Array.from(rows[i].cells);
+                    console.log(cells)
+                    let positionToNum = Number(cells[x].dataset.row + cells[x].dataset.column);
+                    console.log(positionToNum)
+                    if(position === positionToNum){
+                        cells[x].style.backgroundColor = 'red';
+                        return;
+                    }
+                }
+            }
+        }
 
         const roomName = function(roomName){
             const h1 = document.querySelector('h1');
@@ -66,6 +75,7 @@ const uiCtrl = (function () {
     return {
         creatTable,
         roomName,
-        createOpponentTable
+        createOpponentTable,
+        positionRevealed
     }
 })();
