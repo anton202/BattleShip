@@ -25,6 +25,13 @@ const uiCtrl = (function () {
     }
 
     const createOpponentTable = function () {
+       let player2Area =  document.querySelector('.player2Ships');
+       let opponentTurn = document.createElement('h2');
+       opponentTurn.innerText = 'Opponent Turn';
+       opponentTurn.className = 'opponent'
+       opponentTurn.style.color = '#F0F0F0';
+       player2Area.insertBefore(opponentTurn,document.querySelector('#opponentBoard'));
+
         for (let x = 0; x < 5; x++) {
             const tr = document.createElement('tr');
             tr.className = 'boardBorders';
