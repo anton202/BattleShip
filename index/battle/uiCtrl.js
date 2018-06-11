@@ -46,6 +46,7 @@ const uiCtrl = (function () {
             document.querySelector('#opponentBoard').appendChild(tr);
             document.querySelector('img').style.display = 'none';
         }
+        document.querySelector('#opponentBoard').style.display = 'table';
     }
 
     const positionRevealed = function (position) {
@@ -64,6 +65,16 @@ const uiCtrl = (function () {
         }
     }
 
+
+
+    const waitingForOpponent = function(){
+        playerTable = document.querySelector('#opponentBoard');
+        playerTable.style.display = 'none';
+        document.querySelector('img').style.display = 'block';
+        document.querySelector('.opponent').style.display = 'none';
+        document.querySelector('.yourTurn').style.color = '#F0F0F0';
+    }
+
     const roomName = function (roomName) {
         const h1 = document.querySelector('h1');
         h1.textContent = roomName;
@@ -74,6 +85,7 @@ const uiCtrl = (function () {
         creatTable,
         roomName,
         createOpponentTable,
-        positionRevealed
+        positionRevealed,
+        waitingForOpponent
     }
 })();

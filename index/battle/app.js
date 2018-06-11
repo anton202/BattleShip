@@ -19,6 +19,7 @@ const App = (function () {
             opponentBoard.removeEventListener('click',checkPosition);
             socket.emit('turnFinish');
         })
+        
     }
 
 
@@ -64,8 +65,23 @@ const App = (function () {
             document.querySelector('.yourTurn').style.color = 'green';
             document.querySelector('.opponent').style.color = '#F0F0F0';
         })
-        socket.on('changeColor',()=>{
+        socket.on('changeOpponentColor',()=>{
             document.querySelector('.opponent').style.color = 'red';
+        })
+    }
+
+    const winLose = function(){
+        socket.on('youWin',()=>{
+            alert('YOU WIN!!!')
+        })
+        socket.on('youLose',()=>{
+            alert('YOU LOSE !!!!!')
+        })
+    }
+
+    const leftRoom = function(){
+        socket.on('leftRoom',()=>{
+            uiCtrl.waitingForOpponent();
         })
     }
 
@@ -74,6 +90,8 @@ const App = (function () {
             getUserPositions();
             roomReady();
             positionRevealed();
+            winLose();
+            leftRoom();
 
 
         }
