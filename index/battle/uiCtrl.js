@@ -25,12 +25,13 @@ const uiCtrl = (function () {
     }
 
     const createOpponentTable = function () {
-       let player2Area =  document.querySelector('.player2Ships');
-       let opponentTurn = document.createElement('h2');
-       opponentTurn.innerText = 'Opponent Turn';
-       opponentTurn.className = 'opponent'
-       opponentTurn.style.color = '#F0F0F0';
-       player2Area.insertBefore(opponentTurn,document.querySelector('#opponentBoard'));
+        let player2Area = document.querySelector('.player2Ships');
+        let opponentTurn = document.createElement('h2');
+        let opponentBoard = document.querySelector('#opponentBoard');
+        opponentTurn.innerText = 'Opponent Turn';
+        opponentTurn.className = 'opponent'
+        opponentTurn.style.color = '#F0F0F0';
+        player2Area.insertBefore(opponentTurn, document.querySelector('#opponentBoard'));
 
         for (let x = 0; x < 5; x++) {
             const tr = document.createElement('tr');
@@ -43,10 +44,11 @@ const uiCtrl = (function () {
                 td.className = 'boardBorders';
                 tr.appendChild(td);
             }
-            document.querySelector('#opponentBoard').appendChild(tr);
+
+            opponentBoard.appendChild(tr);
             document.querySelector('img').style.display = 'none';
         }
-        document.querySelector('#opponentBoard').style.display = 'table';
+
     }
 
     const positionRevealed = function (position) {
@@ -67,12 +69,19 @@ const uiCtrl = (function () {
 
 
 
-    const waitingForOpponent = function(){
-        playerTable = document.querySelector('#opponentBoard');
-        playerTable.style.display = 'none';
-        document.querySelector('img').style.display = 'block';
-        document.querySelector('.opponent').style.display = 'none';
-        document.querySelector('.yourTurn').style.color = '#F0F0F0';
+    const playerLeftRoom = function () {
+      
+        document.querySelector('.alertWindow').innerText = `The player has left the game.`
+        const link = document.createElement('a');
+        link.href = '../index.html';
+        link.innerText = 'Back to main page';
+        document.querySelector('.alertWindow').appendChild(link);
+
+        // playerTable = document.querySelector('#opponentBoard');
+        // document.querySelector('.player2Ships').removeChild(playerTable);
+        // document.querySelector('img').style.display = 'block';
+        // document.querySelector('.player2Ships').removeChild(document.querySelector('.opponent'))
+        // document.querySelector('.yourTurn').style.color = '#F0F0F0';
     }
 
     const roomName = function (roomName) {
@@ -86,6 +95,6 @@ const uiCtrl = (function () {
         roomName,
         createOpponentTable,
         positionRevealed,
-        waitingForOpponent
+        playerLeftRoom
     }
 })();

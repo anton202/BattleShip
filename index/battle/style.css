@@ -39,3 +39,8 @@ img{
 .roomName{
     margin-bottom: 50px;
 }
+
+.alertWindow{
+    color: red;
+    font-size: 24px;
+}

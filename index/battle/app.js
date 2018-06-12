@@ -11,12 +11,12 @@ const App = (function () {
         document.querySelector('.yourTurn').style.color = '#F0F0F0';
         socket.on('positionExist', () => {
             target.style.backgroundColor = '#7FFFD4';
-            opponentBoard.removeEventListener('click',checkPosition);
+            document.querySelector('#opponentBoard').removeEventListener('click',checkPosition);
             socket.emit('turnFinish');
         })
         socket.on('noPosition', () => {
             target.style.backgroundColor = '#D0D0D0';
-            opponentBoard.removeEventListener('click',checkPosition);
+            document.querySelector('#opponentBoard').removeEventListener('click',checkPosition);
             socket.emit('turnFinish');
         })
         
@@ -56,12 +56,12 @@ const App = (function () {
 
     const whosTurn = function () {
         socket.on('adminTurn', () => {
-            opponentBoard.addEventListener('click',checkPosition)
+            document.querySelector('#opponentBoard').addEventListener('click',checkPosition)
             document.querySelector('.yourTurn').style.color = 'green';
            
         })
         socket.on('opponentTurn',()=>{
-            opponentBoard.addEventListener('click',checkPosition);
+            document.querySelector('#opponentBoard').addEventListener('click',checkPosition);
             document.querySelector('.yourTurn').style.color = 'green';
             document.querySelector('.opponent').style.color = '#F0F0F0';
         })
@@ -81,7 +81,7 @@ const App = (function () {
 
     const leftRoom = function(){
         socket.on('leftRoom',()=>{
-            uiCtrl.waitingForOpponent();
+            uiCtrl.playerLeftRoom();
         })
     }
 
@@ -92,8 +92,6 @@ const App = (function () {
             positionRevealed();
             winLose();
             leftRoom();
-
-
         }
     }
 })()
