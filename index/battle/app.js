@@ -9,19 +9,21 @@ const App = (function () {
         target = e.target;
         socket.emit('checkForShip', Number(e.target.dataset.row + e.target.dataset.column));
         document.querySelector('.yourTurn').style.color = '#F0F0F0';
+    }
+
+
+    const isPositionExist = function () {
         socket.on('positionExist', () => {
             target.style.backgroundColor = '#7FFFD4';
-            document.querySelector('#opponentBoard').removeEventListener('click',checkPosition);
+            document.querySelector('#opponentBoard').removeEventListener('click', checkPosition);
             socket.emit('turnFinish');
         })
         socket.on('noPosition', () => {
             target.style.backgroundColor = '#D0D0D0';
-            document.querySelector('#opponentBoard').removeEventListener('click',checkPosition);
+            document.querySelector('#opponentBoard').removeEventListener('click', checkPosition);
             socket.emit('turnFinish');
         })
-        
     }
-
 
     const getUserPositions = function () {
         fetch('http://localhost:8000/getSession')
@@ -56,32 +58,45 @@ const App = (function () {
 
     const whosTurn = function () {
         socket.on('adminTurn', () => {
-            document.querySelector('#opponentBoard').addEventListener('click',checkPosition)
+            document.querySelector('#opponentBoard').addEventListener('click', checkPosition)
             document.querySelector('.yourTurn').style.color = 'green';
-           
+
         })
-        socket.on('opponentTurn',()=>{
-            document.querySelector('#opponentBoard').addEventListener('click',checkPosition);
+        socket.on('opponentTurn', () => {
+            document.querySelector('#opponentBoard').addEventListener('click', checkPosition);
             document.querySelector('.yourTurn').style.color = 'green';
             document.querySelector('.opponent').style.color = '#F0F0F0';
         })
-        socket.on('changeOpponentColor',()=>{
+        socket.on('changeOpponentColor', () => {
             document.querySelector('.opponent').style.color = 'red';
         })
     }
 
-    const winLose = function(){
-        socket.on('youWin',()=>{
-            alert('YOU WIN!!!')
+    const winLose = function () {
+        socket.on('youWin', () => {
+            let youWin = document.querySelector('.yourTurn');
+            youWin.innerText = 'YOU WIN !!!'
+            youWin.style.color = 'yellow'
         })
-        socket.on('youLose',()=>{
-            alert('YOU LOSE !!!!!')
+        socket.on('youLose', () => {
+            let youLoose = document.querySelector('.yourTurn');
+            youLoose.innerText = 'YOU LOSE !!!'
+            youLoose.style.color = 'red'
         })
     }
 
-    const leftRoom = function(){
-        socket.on('leftRoom',()=>{
+    const leftRoom = function () {
+        socket.on('leftRoom', () => {
             uiCtrl.playerLeftRoom();
+            socket.emit('leaveRoom')
+        })
+    }
+
+    const gameOver = function () {
+        socket.on('gameOver', () => {
+            uiCtrl.gameOver();
+            socket.off('leftRoom')
+            socket.emit('leaveRoom')
         })
     }
 
@@ -89,9 +104,11 @@ const App = (function () {
         init: function () {
             getUserPositions();
             roomReady();
+            isPositionExist();
             positionRevealed();
             winLose();
             leftRoom();
+            gameOver();
         }
     }
 })()

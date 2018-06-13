@@ -67,21 +67,20 @@ const uiCtrl = (function () {
         }
     }
 
-
-
     const playerLeftRoom = function () {
-      
         document.querySelector('.alertWindow').innerText = `The player has left the game.`
         const link = document.createElement('a');
         link.href = '../index.html';
         link.innerText = 'Back to main page';
         document.querySelector('.alertWindow').appendChild(link);
-
-        // playerTable = document.querySelector('#opponentBoard');
-        // document.querySelector('.player2Ships').removeChild(playerTable);
-        // document.querySelector('img').style.display = 'block';
-        // document.querySelector('.player2Ships').removeChild(document.querySelector('.opponent'))
-        // document.querySelector('.yourTurn').style.color = '#F0F0F0';
+    }
+    
+    const gameOver = function(){
+       let gameOverDiv =  document.querySelector('.gameOver');
+       const link  = document.createElement('a');
+       link.innerText = 'Back to Main Page';
+       link.href = '../index.html'
+       gameOverDiv.appendChild(link);
     }
 
     const roomName = function (roomName) {
@@ -95,6 +94,7 @@ const uiCtrl = (function () {
         roomName,
         createOpponentTable,
         positionRevealed,
-        playerLeftRoom
+        playerLeftRoom,
+        gameOver
     }
 })();
