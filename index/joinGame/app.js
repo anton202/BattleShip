@@ -19,7 +19,8 @@ const App = (function () {
                 fetch('http://localhost:8000/setSession', {
                             method: 'POST', body: JSON.stringify({positions:shipsLocation.positions}), headers: {
                                 'Content-Type': 'application/json'
-                            }
+                            },
+                            credentials: 'same-origin'
                         })
                             .then(()=>{}) 
                             location.href = '../battle/index.html'

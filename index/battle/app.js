@@ -26,9 +26,10 @@ const App = (function () {
     }
 
     const getUserPositions = function () {
-        fetch('http://localhost:8000/getSession')
+        fetch('http://localhost:8000/getSession',{credentials: 'same-origin'})
             .then((res) => res.json())
             .then(data => {
+                console.log(data)
                 uiCtrl.creatTable(data.positions)
                 uiCtrl.roomName(data.roomName)
                 isRoom({ roomName: data.roomName, positions: data.positions });
@@ -89,6 +90,9 @@ const App = (function () {
         socket.on('leftRoom', () => {
             uiCtrl.playerLeftRoom();
             socket.emit('leaveRoom')
+            fetch('http://localhost:8000/deleteSession',{credentials: 'same-origin'})
+            .then(()=>{})
+            
         })
     }
 
