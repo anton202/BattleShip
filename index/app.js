@@ -2,6 +2,10 @@
 const openGamesContainer = document.querySelector('.openGamesBtn');
 const socket = io();
 
+
+fetch('http://localhost:8000/isSession',{credentials:'same-origin'})
+.then(()=>{});
+
 openGamesContainer.addEventListener('click', (e) => {
     
     if (e.target.className === 'join') {

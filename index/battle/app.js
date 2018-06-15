@@ -101,6 +101,8 @@ const App = (function () {
             uiCtrl.gameOver();
             socket.off('leftRoom')
             socket.emit('leaveRoom')
+            fetch('http://localhost:8000/deleteSession',{credentials: 'same-origin'})
+            .then(()=>{})
         })
     }
 
