@@ -31,3 +31,15 @@
 .createGameLink:hover{
     color: white;
 }
+
+
+@media screen and (min-width: 320px) and (max-width: 480px){
+    .createGameBtn{
+        width: 100%;
+    }
+
+    .openGamesPara{
+        padding-left: 0;
+        font-size: 16px;
+    }
+}
