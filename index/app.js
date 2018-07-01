@@ -6,7 +6,7 @@ const app = (function () {
         openGamesContainer.addEventListener('click', (e) => {
 
             if (e.target.className === 'join') {
-                fetch('46.101.194.54:8081/setJoinGameRoomName', {
+                fetch('http://46.101.194.54:8081/setJoinGameRoomName', {
                     method: 'POST', body: JSON.stringify({ roomName: e.target.textContent }), headers: {
                         'Content-Type': 'application/json'
                     },
@@ -51,7 +51,7 @@ const app = (function () {
 
     return {
         init: function () {
-            fetch('46.101.194.54:8081/isSession', { credentials: 'same-origin' })
+            fetch('http://46.101.194.54:8081/isSession', { credentials: 'same-origin' })
                 .then(() => { });
             joinGame();
             ioEvents();

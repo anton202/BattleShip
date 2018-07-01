@@ -20,7 +20,7 @@ const App = (function () {
             if (roomName !== undefined && shipsLocation.positions.length === 3) {
                 location.href = '../battle/index.html'
                 
-                fetch('46.101.194.54:8081/setSession', {
+                fetch('http://46.101.194.54:8081/setSession', {
                     method: 'POST', body: JSON.stringify({positions:shipsLocation.positions,roomName:roomName}), headers: {
                         'Content-Type': 'application/json'
                     },

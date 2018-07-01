@@ -16,7 +16,7 @@ const App = (function () {
 
         joinGame.addEventListener('click', (e) => {
             if(shipsLocation.positions.length === 3){
-                fetch('46.101.194.54:8081/setSession', {
+                fetch('http://46.101.194.54:8081/setSession', {
                             method: 'POST', body: JSON.stringify({positions:shipsLocation.positions}), headers: {
                                 'Content-Type': 'application/json'
                             },
