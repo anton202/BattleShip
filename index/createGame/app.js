@@ -12,7 +12,7 @@ const App = (function () {
         table.addEventListener('click', uiCtrl.positionColor);
         table.addEventListener('click', uiCtrl.shipSelected);
 
-        document.querySelector('#resetSelection').addEventListener('click', () => {
+        document.querySelector('.resetSelection').addEventListener('click', () => {
             location.reload();
         })
 

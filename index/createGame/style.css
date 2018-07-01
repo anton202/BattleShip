@@ -41,3 +41,25 @@
 .shipSizes > li{
     margin: 0;
 }
+
+@media screen and (min-width: 320px) and (max-width: 480px){
+    .battleBoard{
+        width: 100%;
+    }
+
+    .ship{
+        width: 30%;
+    }
+    
+   .instructions{
+       width: 100%;
+   }
+
+   .createGameBtn{
+       width: 100%;
+   }
+
+   .resetSelection{
+       width: 100%;
+   }
+}
