@@ -26,7 +26,7 @@ const App = (function () {
     }
 
     const getUserPositions = function () {
-        fetch('http://localhost:8000/getSession',{credentials: 'same-origin'})
+        fetch('46.101.194.54:8081/getSession',{credentials: 'same-origin'})
             .then((res) => res.json())
             .then(data => {
                 console.log(data)
@@ -90,7 +90,7 @@ const App = (function () {
         socket.on('leftRoom', () => {
             uiCtrl.playerLeftRoom();
             socket.emit('leaveRoom')
-            fetch('http://localhost:8000/deleteSession',{credentials: 'same-origin'})
+            fetch('46.101.194.54:8081/deleteSession',{credentials: 'same-origin'})
             .then(()=>{})
             
         })
@@ -101,7 +101,7 @@ const App = (function () {
             uiCtrl.gameOver();
             socket.off('leftRoom')
             socket.emit('leaveRoom')
-            fetch('http://localhost:8000/deleteSession',{credentials: 'same-origin'})
+            fetch('46.101.194.54:8081/deleteSession',{credentials: 'same-origin'})
             .then(()=>{})
         })
     }
