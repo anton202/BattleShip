@@ -42,3 +42,28 @@
     margin: 0;
 }
 
+@media screen and (min-width: 320px) and (max-width: 480px){
+    .tableShipsBtn{
+        width: 100%;
+    }
+
+    .battleBoard{
+        width: 100%;
+    }
+
+    .ship{
+        width: 30%;
+    }
+
+.instructions{
+    width: 100%;
+}
+
+.joinGame{
+    width: 100%;
+}
+
+#resetSelection{
+    width: 100%;
+}
+}
