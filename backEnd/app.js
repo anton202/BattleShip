@@ -7,7 +7,7 @@ const bodyParser = require('body-parser');
 const routes = require('./routes');
 
 
-app.use(express.static('../UI/index'))
+app.use(express.static('../src'))
 app.use(session({
   secret: 'keyboard cat',
   cookie: {
