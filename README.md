@@ -1,5 +1,5 @@
 # BattleShip Game
-guess opponent ship placement, and destroy it !!!
+Guess opponent ship placement, and destroy it !!!
 
 # Run Locally
 1. clone this repository into a folder of your choice 
